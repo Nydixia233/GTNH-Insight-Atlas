@@ -18,6 +18,14 @@ jobs:
         run: python -m scripts.atlas.validate_data
       - name: Run tests
         run: python -m pytest scripts/atlas/tests
+      - name: Checkout GT5-Unofficial source (line-anchor reference)
+        run: |
+          git clone --depth 1 --branch 5.09.52.594 \
+            https://github.com/GTNewHorizons/GT5-Unofficial.git "$RUNNER_TEMP/gt5u-src"
+      - name: Verify source references (strict, full line-by-line)
+        env:
+          GT5U_SRC: ${{ runner.temp }}/gt5u-src/src/main/java
+        run: python -m scripts.atlas.source_refs --strict
 
   build:
     runs-on: ubuntu-latest
