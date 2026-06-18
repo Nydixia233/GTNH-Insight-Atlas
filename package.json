@@ -1,0 +1,31 @@
+{
+  "name": "gtnh-insight-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:data": "python -m scripts.atlas.validate_data",
+    "generate": "python -m scripts.atlas.extract_site_data && python -m scripts.atlas.markdown_index && python -m scripts.atlas.link_graph",
+    "predev": "pnpm generate",
+    "dev": "vitepress dev site --host 127.0.0.1",
+    "prebuild": "pnpm validate:data && pnpm generate",
+    "build": "vitepress build site",
+    "check": "pnpm validate:data && python -m scripts.atlas.source_refs --strict && pnpm generate && python -m pytest scripts/atlas/tests && pnpm build"
+  },
+  "dependencies": {
+    "echarts": "^5.5.1",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-yaml": "^4.1.2",
+    "@types/node": "^22.10.5",
+    "typescript": "^5.6.3",
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.13"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

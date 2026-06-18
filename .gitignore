@@ -1,0 +1,35 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node/VitePress
+node_modules/
+site/.vitepress/cache/
+site/.vitepress/.temp/
+site/.vitepress/dist/
+
+# Generated build artifacts
+generated/
+
+# Local reference material. Only README.md is tracked.
+/_local/*
+!/_local/README.md
+
+# Misc scratch output
+tmp/
+scratch/
+*.tmp
+*.bak
+dev-server*.log

@@ -1,0 +1,13 @@
+migrations:
+  - legacy_path: topics/electric-blast-furnace/
+    atlas_path: content/topics/electric-blast-furnace/
+    status: rewritten
+    notes: Rewritten for the new structure; source lines checked against GT5U 5.09.52.594.
+  - legacy_path: foundations/overclock-calculator.md
+    atlas_path: content/foundations/overclock.md
+    status: rewritten
+    notes: Rewritten for the new structure; source lines checked against GT5U 5.09.52.594.
+  - legacy_path: reference/voltage-tiers.md
+    atlas_path: content/reference/voltage-tiers.md
+    status: rewritten
+    notes: Rewritten for the new structure; source lines checked against GT5U 5.09.52.594.

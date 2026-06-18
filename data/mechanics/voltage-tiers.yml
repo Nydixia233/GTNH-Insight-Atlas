@@ -1,0 +1,56 @@
+- id: voltage.tier-array
+  label: Voltage tier array
+  value:
+    - 8
+    - 32
+    - 128
+    - 512
+    - 2048
+    - 8192
+    - 32768
+    - 131072
+    - 524288
+    - 2097152
+    - 8388608
+    - 33554432
+    - 134217728
+    - 536870912
+    - 2147483640
+    - 8589934592
+  unit: EU
+  source:
+    - file: gregtech/api/enums/GTValues.java
+      line: 93
+      version: 5.09.52.594
+      expect: "public static final long[] V = new long[] { 8L, 32L, 128L, 512L, 2048L, 8192L, 32_768L, 131_072L, 524_288L,"
+  verification:
+    status: source-only
+    method: source-line
+- id: voltage.tier-names
+  label: Voltage tier names
+  value:
+    - ULV
+    - LV
+    - MV
+    - HV
+    - EV
+    - IV
+    - LuV
+    - ZPM
+    - UV
+    - UHV
+    - UEV
+    - UIV
+    - UMV
+    - UXV
+    - MAX
+    - MAX+
+  unit: tier
+  source:
+    - file: gregtech/api/enums/GTValues.java
+      line: 135
+      version: 5.09.52.594
+      expect: 'public static final String[] VN = new String[] { "ULV", // 0'
+  verification:
+    status: source-only
+    method: source-line

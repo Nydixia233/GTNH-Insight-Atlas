@@ -1,0 +1,73 @@
+- id: oc.eut-increase-per-oc
+  label: EUt increase per normal overclock
+  value: 4
+  unit: multiplier
+  source:
+    - file: gregtech/api/util/OverclockCalculator.java
+      line: 33
+      version: 5.09.52.594
+      expect: "protected double eutIncreasePerOC = 4;"
+  verification:
+    status: source-only
+    method: source-line
+  notes: Normal overclock power multiplier.
+- id: oc.duration-divisor-normal
+  label: Duration divisor per normal overclock
+  value: 2
+  unit: multiplier
+  source:
+    - file: gregtech/api/util/OverclockCalculator.java
+      line: 35
+      version: 5.09.52.594
+      expect: "protected double durationDecreasePerOC = 2;"
+  verification:
+    status: source-only
+    method: source-line
+- id: oc.duration-divisor-perfect
+  label: Duration divisor for perfect overclocks
+  value: 4
+  unit: multiplier
+  source:
+    - file: gregtech/api/util/OverclockCalculator.java
+      line: 125
+      version: 5.09.52.594
+      expect: "this.durationDecreasePerOC = 4;"
+  verification:
+    status: source-only
+    method: source-line
+- id: oc.heat-oc-divisor
+  label: Duration divisor per heat overclock
+  value: 4
+  unit: multiplier
+  source:
+    - file: gregtech/api/util/OverclockCalculator.java
+      line: 57
+      version: 5.09.52.594
+      expect: "protected final double durationDecreasePerHeatOC = 4;"
+  verification:
+    status: source-only
+    method: source-line
+- id: oc.heat-discount-exponent
+  label: Heat discount exponent
+  value: 0.95
+  unit: exponent
+  source:
+    - file: gregtech/api/util/OverclockCalculator.java
+      line: 63
+      version: 5.09.52.594
+      expect: "protected double heatDiscountExponent = 0.95;"
+  verification:
+    status: source-only
+    method: source-line
+- id: oc.duration-divide-loop
+  label: Regular overclock duration divider
+  value: "duration /= GTUtility.powInt(durationDecreasePerOC, regularOverclocks);"
+  unit: code
+  source:
+    - file: gregtech/api/util/OverclockCalculator.java
+      line: 413
+      version: 5.09.52.594
+      expect: "duration /= GTUtility.powInt(durationDecreasePerOC, regularOverclocks);"
+  verification:
+    status: source-only
+    method: source-line

@@ -1,0 +1,49 @@
+- id: ebf.class-definition
+  label: Electric Blast Furnace class definition
+  value: MTEElectricBlastFurnace
+  unit: class
+  source:
+    - file: gregtech/common/tileentities/machines/multi/MTEElectricBlastFurnace.java
+      line: 61
+      version: 5.09.52.594
+      expect: "public class MTEElectricBlastFurnace extends MTEAbstractMultiFurnace<MTEElectricBlastFurnace>"
+  verification:
+    status: source-only
+    method: source-line
+- id: ebf.heat-gate
+  label: EBF heat gate
+  value: recipe.mSpecialValue <= mHeatingCapacity
+  unit: condition
+  source:
+    - file: gregtech/common/tileentities/machines/multi/MTEElectricBlastFurnace.java
+      line: 214
+      version: 5.09.52.594
+      expect: "return recipe.mSpecialValue <= mHeatingCapacity ? CheckRecipeResultRegistry.SUCCESSFUL"
+  verification:
+    status: verified
+    method: source-line
+    record: Local source check.
+- id: ebf.heat-capacity-formula
+  label: EBF heat capacity formula
+  value: coilHeat + 100 * (tier - 2)
+  unit: formula
+  source:
+    - file: gregtech/common/tileentities/machines/multi/MTEElectricBlastFurnace.java
+      line: 237
+      version: 5.09.52.594
+      expect: "this.mHeatingCapacity = (int) getCoilLevel().getHeat() + 100 * (GTUtility.getTier(getMaxInputVoltage()) - 2);"
+  verification:
+    status: source-only
+    method: source-line
+- id: ebf.coil-base-heat
+  label: Coil base heat
+  value: "None ? 0 : 1L + (900L * this.ordinal())"
+  unit: formula
+  source:
+    - file: gregtech/api/enums/HeatingCoilLevel.java
+      line: 33
+      version: 5.09.52.594
+      expect: "return this == None ? 0 : 1L + (900L * this.ordinal());"
+  verification:
+    status: source-only
+    method: source-line

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gtnh-insight-atlas.local/schemas/page.schema.json",
+  "title": "Atlas Page Frontmatter",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["title", "slug", "axis", "status", "version_anchor", "source_version", "sources"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "axis": {
+      "enum": ["progression", "topic", "foundation", "reference"]
+    },
+    "status": {
+      "enum": ["verified", "source-only", "pending", "contradicted", "draft"]
+    },
+    "version_anchor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
